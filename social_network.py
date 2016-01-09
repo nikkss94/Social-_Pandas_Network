@@ -39,6 +39,7 @@ class PandaSocialNetwork():
     def add_panda(self, panda):
         dict_panda = {}
         if self.has_panda(panda) is True:
+            return False
         else:
             dict_panda[panda] = []
             self.social_network.update(dict_panda)
@@ -57,6 +58,7 @@ class PandaSocialNetwork():
 
     def make_friends(self, panda1, panda2):
         if self.are_friends(panda1, panda2):
+            return False
         else:
             if not self.has_panda(panda1):
                 self.add_panda(panda1)
@@ -67,7 +69,7 @@ class PandaSocialNetwork():
             
 
     def are_connected(self,panda1, panda2):
-        if not self.connection_level(panda1,panda2):
+        if self.connection_level(panda1,panda2) == -1:
             return False
         else:
             return True
