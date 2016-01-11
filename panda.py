@@ -1,5 +1,8 @@
 class Panda:
+    ID = 0
     def __init__(self, name, email, gender):
+        self.id = self.ID
+        self.__class__.ID += 1
         self._name = name
         self._email = email
         self._gender = gender
@@ -9,6 +12,8 @@ class Panda:
             return True
         else:
             return False
+    def get_id(self):
+        return self.id
 
     def isFemale(self):
         if self._gender == "female":
